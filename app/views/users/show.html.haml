@@ -1,0 +1,11 @@
+.follow
+  = image_tag @user.avatar.url(:small)
+  = @follow
+
+- @user.friends.each do |f|
+  %ul.users
+    %li
+      = link_to image_tag(f.avatar.url(:medium)), user_flits_path(f.username), :title => f.username
+      = link_to f.username, user_flits_path(f.username)
+
+

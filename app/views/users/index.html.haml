@@ -1,0 +1,10 @@
+.users
+  %h3.title= t(:sample)
+  %ul
+    - @users.each do |user|
+      :erb
+        <li<% if @users.first == user %> class="first"<% end %>>
+      = link_to image_tag(user.avatar.url(:medium)), user_flits_path(user.username), :title => user.username
+      %span.screenname= link_to user.username, user_flits_path(user.username)
+      %span.user_detail= link_to "Followers: #{ user.friends_of.count }"
+= will_paginate @user

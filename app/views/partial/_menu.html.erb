@@ -1,0 +1,12 @@
+<ul>
+  <li><%= link_to "#{image_tag "icon/home.png", :size => '16x16' } #{ t(:home)}", root_path %></li>
+  <li><%= link_to "#{image_tag "icon/people.png", :size => '16x16' } #{ t(:users)}", home_index_path %></li>
+
+<% if logged_in? -%>
+
+  <li><%= link_to "#{image_tag "icon/pencil.png", :size =>'16x16'} #{t(:myfeed)}", user_flits_path(current_user.username) %></li>
+  <li><%= link_to "#{image_tag "icon/tag_red.png", :size => '16x16'} #{t(:report)}", report_index_path %></li>
+
+<% end -%>
+
+</ul>

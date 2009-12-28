@@ -1,0 +1,11 @@
+
+timezone:
+  :tokyo       : Tokyo (GMT+09:00)
+  :seoul       : Seoul (GMT+09:00)
+  :singapore   : Singapore (GMT+08:00)
+  :beijing     : Beijing (GMT+08:00)
+
+language:
+  :japanese    : Japanese/日本語
+  :chinese     : Chinese/中国語
+  :English     : English/英語

@@ -1,0 +1,21 @@
+- unless @friends.empty?
+  .flash
+    %h2.notice Results: #{ @friends.count} for "#{@q}"
+  %ul#flits_list
+    - @friends.each do |friend|
+      :erb
+        <li<% if @friends.first == friend %> class="first"<% end %>>
+      = image_tag friend.avatar.url(:medium)
+      .flit_message_container
+        %h3
+          = link_to friend.username, user_flits_path(friend.username)
+        - if friend.flits.length > 0
+          = friend.flits.last.message
+          .time_ago
+            = distance_of_time_in_words_to_now(friend.flits.last.created_at)
+            &= t(:ago)
+      .clear
+- else
+  .flash
+    %h3.error No result
+

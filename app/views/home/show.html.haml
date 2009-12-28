@@ -1,0 +1,32 @@
+#info_container
+  %table
+    %tr
+      %td= image_tag @user.avatar.url(:medium), :size => '72x72', :title => @user.username
+      %td.first
+        %span.up #{@user.username}
+        %span #{@user.flits.size} tweets
+      %td
+        %span.up Area: 東京都江東区
+        %span PR: ラーメン
+      %td
+        %span.up
+          = link_to @user.friends.size, following_path
+          = link_to t(:following).pluralize, following_path
+        %span
+          = link_to @user.friends_of.size, followers_path
+          = link_to t(:follower).pluralize, followers_path
+
+  - if current_user
+    - form_tag follow_path do
+      - if current_user == @user
+        .clear
+      - elsif current_user.is_friend? @user
+        :erb
+          <button class="button" type="submit"><%= image_tag('icon/unfollow.png') %><%= t(:unfollow?) %></button>
+      - else
+        :erb
+          <button class="button" type="submit"><%= image_tag('icon/follow.png') %><%= t(:follow?) %></button>
+      .clear
+
+= render :partial => "form" if current_user == @user
+= render :partial => "flits_list", :locals => {:flits => @flits}

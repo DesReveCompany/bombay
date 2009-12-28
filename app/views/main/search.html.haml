@@ -1,0 +1,40 @@
+#main_form
+  .result
+    %table
+      %tr
+        %td
+          %h2= link_to t(:app_name), main_index_path
+        - form_tag({:controller => "main", :action => "search"}, :method => "get", :class => "form") do
+          %td= text_field_tag :q, @q, :class => "text_field",:tabindex => 1
+          %td= submit_tag :search, :value => t(:search), :class => "button", :tabindex => 2
+          %td.desc= link_to t(:adavanced_search), "", :tabindex => 3
+
+
+- unless @friends.empty?
+  .flash
+    %h3.notice= highlight("Results: #{@total.size} for #{params[:q]}",["#{@total.size}", "#{params[:q]}"])
+  %ul#flits_list
+    - @friends.each do |friend|
+      :erb
+        <li<% if @friends.first == friend %> class="first"<% end %>>
+      = image_tag friend.avatar.url(:medium)
+      .message_container
+        %h3
+          = link_to friend.username, user_flits_path(friend.username)
+        - if friend.flits.length > 0
+          = friend.flits.last.message
+          .time_ago
+            = distance_of_time_in_words_to_now(friend.flits.last.created_at)
+            &= t(:ago)
+      .clear
+- else
+  .flash
+    %h3.error= highlight("No result for \"#{params[:q]}\"", "#{params[:q]}")
+    %p Ads
+
+
+.adsense_block
+  = render :partial => "partial/ads"
+.clear
+.pagination
+  = will_paginate @friends

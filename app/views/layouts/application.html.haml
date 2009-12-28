@@ -1,0 +1,39 @@
+!!! Strict
+%html
+  %head
+    %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
+    %title&= yield(:title) || t(:app_name)
+    = stylesheet_link_tag 'base'
+    = stylesheet_link_tag 'style'
+    = stylesheet_link_tag 'ticker'
+    = javascript_include_tag :defaults
+    = yield :head
+  %body
+    #container
+      #header
+        #user-navigation
+          %ul
+            = render :partial => "partial/menu_right"
+            .clear
+        #main-navigation
+          = render :partial => "partial/menu"
+          .clear
+      #wrapper
+        #main
+          .block
+            .flash
+              - flash.each do |name, mesg|
+                %div{ :class => "message #{name}" }
+                  %p&= mesg
+            .content
+              = yield
+            .ticker
+              = render :partial => "partial/ticker"
+        #sidebar
+          = render :partial => "partial/sidebar"
+        .clear
+    - unless params[:action] == "page"
+      #footer
+        .block
+          = render :partial => "partial/footer"
+

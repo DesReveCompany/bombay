@@ -1,0 +1,44 @@
+- title "#{t(:app_name)} - #{t(:login)}"
+
+#box
+  #block-login.block
+    %h2
+      = "#{t(:app_name)} - #{t(:login)}"
+    .content.login
+      .flash
+        - flash.each do |type, message|
+          :erb
+            <div class="message <%= type %>">
+          %p= message
+
+      - form_tag sessions_path, :class => "form login" do
+
+        .group
+          = label_tag :login, t(:login), :class => "label right"
+          = text_field_tag :login, params[:login], :class => "text_field"
+          .clear
+          %span.description= t(:desc_login)
+        .clear
+
+        .group
+          = label_tag :password, t(:password), :class => "label right"
+          = password_field_tag :password, "", :class => "text_field"
+          .clear
+          %span.description= t(:desc_password)
+        .clear
+
+        .group
+          .left
+            :erb
+              <button class="button" type="submit"><%= image_tag('buttons/key.png') %><%= t(:login) %></button>
+          .right
+            %p
+              = t(:not_have_account)
+              = link_to t(:signup), signup_path
+            %p
+              = t(:fogot)
+              = link_to t(:recertify)
+
+          .clear
+
+

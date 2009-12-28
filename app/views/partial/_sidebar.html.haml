@@ -1,0 +1,45 @@
+.sidebar
+  .block
+    %h3= t(:search)
+    .content
+      - form_tag search_path do
+        #search_bar
+          = text_field_tag :q, @q, :class => "text"
+          #search_submit_button
+            &nbsp;
+
+        - tag_cloud Flit.tag_counts.sort { |x, y| x.name <=> y.name }, %w(css1 css2 css3 css4) do |tag, css_class|
+          = link_to tag.name, { :controller => :main, :action => :search, :q => tag.name, :id => tag.name }, :class => css_class
+
+- if params[:action] == "show"
+  .block
+    %h3= "#{ @user.username } is following..."
+    .content
+      #following_list
+        - @user.friends.each do |f|
+          %p
+            %span.vcard= link_to image_tag(f.avatar.url(:small)), user_flits_path(f.username), :title => f.username
+
+
+
+.block.notice
+  %h5
+    %u Sample Block
+  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit,  |
+     sed do eiusmod tempor incididunt ut labore et dolore magna |
+     aliqua. Ut enim ad minim veniam, quis nostrud exercitation |
+     ullamco laboris nisi ut aliquip ex ea commodo consequat.   |
+
+.block
+  %h3 Ad
+  .content
+    %p
+      %script{ :type => "text/javascript" }
+        /
+          google_ad_client = "pub-2161741329910467";
+          \/* 300x250, 作成済み 09/12/07 */
+          google_ad_slot = "3996809569";
+          google_ad_width = 300;
+          google_ad_height = 250;
+          \//
+      %script{ :type => "text/javascript", :src => "http://pagead2.googlesyndication.com/pagead/show_ads.js" }

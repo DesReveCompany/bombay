@@ -1,0 +1,68 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  sample: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+  app_name: "AppName"
+  copyright: "All rights reserved app_name"
+
+  # main
+  trend: "Trend Tags: "
+  menu1: "What's this?"
+  menu2: "How to?"
+  menu3: "menu"
+  menu4: "Help"
+
+ # twitter function
+  what: "What's up?"
+  delete: "Delete"
+  bookmark: "Bookmark"
+  reply: "Reply"
+  ago: "ago"
+  sure?: 'Are you sure?'
+  unfollow: 'Unfollow'
+  following: "Following"
+  follower: "Follower"
+  follow?: "Follow?"
+  unfollow?: "Unfollow?"
+
+ # menu
+  home: "Home"
+  myfeed: "My Feed"
+  users: "Shop"
+  profile: "Profile"
+  search: "Search"
+  tag_list: "Tag"
+  report: "Report"
+
+  # signup & login
+  login: "Login"
+  logout: "Logout"
+  signup: "Sign up"
+  have_account: "Already have an account?"
+  not_have_account: "Don't have an account?"
+  fogot: "Fogot your password?"
+  recertify: "resend"
+  adavanced_search: "Advanced Search"
+
+  # form description
+  desc_username: "Enter your real name, so people you know can recognize you."
+  desc_login: "Username or Email address"
+  desc_email: "Enter valida email address"
+  desc_password: "At least 4 characters"
+  desc_password_confirm: ""
+
+  #profile
+  username: "Username"
+  password: "Password"
+  password_confirmation: "Re-type Password"
+  email: "Email"
+  save: "Save"
+  cancel: "Cancel"
+
+
+
+
+
+
+

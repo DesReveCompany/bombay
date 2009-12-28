@@ -1,0 +1,36 @@
+%h1= t(:app_name)
+#main-ticker
+  = render :partial => "partial/main_ticker"
+#main_form
+  - form_tag({:controller => "main", :action => "search"}, :method => "get", :class => "form") do
+    = text_field_tag :q, @q, :class => "text_field", :tabindex => 1
+    .desc= link_to t(:adavanced_search), :tabindex => 3
+    = submit_tag :search, :value => t(:search), :name => nil, :class => "button", :tabindex => 2
+
+
+#main_tag_list
+  = t(:trend)
+  - tag_cloud Flit.tag_counts, %w(css1 css2 css3 css4) do |tag, css_class|
+    = link_to tag.name, { :action => :search, :q => tag.name }, :class => css_class
+#ads_area
+  ads area:
+  - tag_cloud Flit.tag_counts.sort { |x, y| x.name <=> y.name }, %w(css1 css2 css3 css4) do |tag, css_class|
+    = link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class
+
+%table.table{:style => "font-size:2em;color:#64af1b;margin-top:30px"}
+  %tr
+    %td What's this?
+    %td Help?
+  %tr
+    %td
+      :erb
+        <object width="256" height="200"><param name="movie" value="http://www.youtube.com/v/DFeuJ_aPeqg&hl=en_US&fs=1&rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/DFeuJ_aPeqg&hl=en_US&fs=1&rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="256" height="200"></embed></object>
+    %td
+      :erb
+        <object width="256" height="200"><param name="movie" value="http://www.youtube.com/v/4-94JhLEiN0&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/4-94JhLEiN0&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="256" height="200"></embed></object>
+
+
+
+
+
+

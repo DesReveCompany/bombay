@@ -1,0 +1,36 @@
+%h3.title= t(:sample)
+.form.post
+  - form_for @user, :html => {:multipart => true } do |f|
+    - f.error_messages
+
+    %fieldset.inputs
+      %ol
+        %li
+          = image_tag @user.avatar.url(:medium), :size => '70x70'
+          = f.label :avatar
+          = f.file_field :avatar
+        %li
+          = f.label :username
+          = f.text_field :username
+          %br
+          %spam.description= t(:desc_username)
+        %li
+          = f.label :email
+          = f.text_field :email
+        %li
+          = f.label :timezone
+          = f.select :timezone, Setting.invert(:timezone), {:include_blank => "Please select", :selected => @user.timezone.blank? ? :new : @user.timezone.to_sym }
+        %li
+          = f.label :language
+          = f.select :language, Setting.invert(:language), {:include_blank => "Please select", :selected => @user.language.blank? ? :new : @user.language.to_sym }
+
+        %li
+          = f.label :password
+          = f.text_field :password_salt
+
+
+    .group.navform
+      :erb
+        <button class="button" type="update"><%=  image_tag('buttons/tick.png') %><%= t(:save) %></button>
+        <%= link_to image_tag('buttons/cross.png') + t(:cancel), users_path, {:class => "button"} %>
+      .clear

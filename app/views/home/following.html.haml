@@ -1,0 +1,37 @@
+%h3.title= @message
+- unless @friends.empty?
+  %ul#flits_list
+
+    - @friends.each do |friend|
+      :erb
+        <li<% if @friends.first == friend %> class="first"<% end %>>
+      = link_to image_tag(friend.avatar.url(:medium))
+      .flit_message_container{:style => "width:480px;"}
+        = link_to friend.username, user_flits_path(friend.username)
+        - if friend.flits.size > 0
+          .time_ago
+            Last message:
+            = link_to "#{distance_of_time_in_words_to_now(friend.flits.last.created_at)} #{t(:ago)}", :action => "page",:id => friend.flits.last.id
+      :erb
+        <button type="button" name="<%= friend.username %>" class="button ajax_button" />
+        <% if request.url =~ /following$/ and @user == current_user %>
+        <%= image_tag('icon/unfollow.png') %><%= t(:unfollow) %>
+        <% else %>
+        <%= image_tag('icon/follow.png') %><%= t(:follow) %>
+        </button>
+        <% end %>
+      .clear
+- else
+  .clear{:style => "height:100px"}
+    %h2  help?
+    %ul
+      %li= link_to "How to follow other shop"
+      %li= link_to "What's is this?"
+      %li= link_to "Fuck the world"
+
+= will_paginate @friends
+
+
+
+
+

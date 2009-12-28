@@ -1,0 +1,8 @@
+- if logged_in?
+  - title "#{t(:app_name)} - #{current_user.username}"
+- else
+  - title "#{t(:app_name)}"
+
+= render :partial => "flits_list", :locals => {:flits => @flits}
+
+= will_paginate @flits

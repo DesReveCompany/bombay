@@ -1,0 +1,17 @@
+- form_for Flit.new, :html => {:class => "form"} do |f|
+  #new_flit_form
+    %h3{:style => "float:left"}= t(:what)
+    %h3#char_count 140
+    %br
+    .clear
+    .140
+      = f.text_area :message, :class => "text_area"
+    .tag_form
+      = image_tag "icon/tag_blue.png", :size => '16x16', :title => t(:tag_list)
+      = f.text_field :tag_list, :class => "tag_form"
+      .clear
+      %span.description{:style => "margin-left:25px"}= t(:tag_example)
+    #submit_button_container
+      = f.submit "update", :class => "button"
+    .clear
+

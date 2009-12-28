@@ -1,0 +1,13 @@
+=== Setting Up
+
+   $ git clone git://github.com/abiru/bombay.git
+   $ cd bombay
+   $ cp config/database.yml.sqlite3 config/database.yml
+   $ rake bom:setup
+
+=== Running The App
+
+Now you should be able to launch the Rails server and point your web browser
+to http://localhost:3000
+
+   $ ./script/server

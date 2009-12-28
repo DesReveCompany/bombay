@@ -1,0 +1,864 @@
+@import colors
+@import behaviors
+
+#main-container
+
+  #wrapper
+    :padding 20px
+    :background = !white
+    :margin 0 20px
+
+    #main
+      :width 100%
+      :text-align center
+
+      h1
+        :margin-top 30px
+        :font-size 5em
+        :font-weight bold
+
+      .block
+        :margin-bottom 20px
+        :padding-top 1px
+
+      .content .inner
+        :padding 0 15px 15px
+
+      #flits_list
+        :width 65%
+        :float left
+        .message_container
+          :text-align left
+
+
+  #main-ticker
+    :height 40px
+    .news-text
+      :color = !pink
+  #footer
+    .copyright
+      :text-align center
+      :font-size 1.2em
+      :background = !white
+      :margin 0 20px 5px
+      :padding 5px
+      +round-bottom
+#main_form
+  input
+    &.text_field
+      :width 50%
+      :font-size 2em
+      :border 1px solid #222
+    &.button
+      :background = !gray_ultralight
+      :color = !black_darker
+      :padding 2px 5px
+      :cursor pointer
+      :font-size 1.5em
+  .desc
+    :margin 3px 0 0 0
+    :text-align right
+    :width 73%
+    a
+      :text-decoration underline
+      :font-style italic
+      :color = !turquoise
+      /* :color  #0063DC */
+  .result
+    :margin 20px 0 0 0
+    table
+      tr
+        td
+          :padding-left 5px
+    input
+      &.text_field
+        :width 300px
+        :font-size 2em
+        :border 1px solid #222
+      &.button
+        :background = !gray_ultralight
+        :color = !black_darker
+        :cursor pointer
+        :border 1px solid #222
+        :width 80px
+        +round-top
+        +round-bottom
+    .desc
+      :text-align left
+      :font-size 0.9em
+
+#main_tag_list
+  :margin 20px
+
+  a
+    :padding-left 5px
+
+/* admin panel */
+body > #container
+  :height auto
+  :min-height 100%
+
+body
+  :color = !black_font
+  :background = !gray_lightest
+  :font-family Helvetica, Arial, lucinda, sans-serif
+
+  .small
+    :font-size = !small
+
+  .gray
+    :color = !gray
+
+  .hightlight
+    :background-color = !yellow_light
+
+  a
+    :-moz-outline none
+    :text-decoration none
+
+    &:link, &:visited, &:hover, &:active
+      :color = !turquoise
+    &:hover
+      :text-decoration underline
+
+  hr
+    :background = !gray_lightest
+    :color = !gray_lightest
+
+  h1, h2, h3
+    :color = !turquoise
+
+    img
+      :vertical-align middle
+
+
+  #container
+    :height 100%
+
+    #main
+      :padding-bottom 100px
+      .block
+
+        .flash
+
+          .message
+            :-moz-border-radius 3px
+            :-webkit-border-radius 3px
+            :text-align center
+            :margin 0 auto 15px
+
+            p
+              :margin 8px
+
+          .error
+            :border 1px solid #fbb
+            :background-color #fdd
+
+          .warning
+            :border 1px solid #fffaaa
+            :background-color #ffffcc
+
+          .notice
+            :border 1px solid #1FDF00
+            :background-color #BBFFB6
+
+        .ticker
+          :background = !black_darker
+          :padding 0px 25px
+          :overflow hidden
+          :font-size 1.2em
+          +round-bottom
+
+        .content
+          +round-top
+          :background = !white
+          :padding 20px 25px 30px
+          :overflow hidden
+
+          .title
+            :background-color #E9FAE6
+            :margin 0 0 20px
+            :padding 5px 5px 5px 15px
+            :color = !red_wine
+
+        .secondary-navigation
+          :background = !turquoise
+          :border-bottom-color = !black_darker
+          +round-top
+
+          ul li
+            a
+              &:link, &:visited, &:hover, &:active
+                :text-decoration none
+                :color = !white
+
+            &.active
+              :background-color = !black_darker
+
+              a:hover
+                :background-color = !black_darker
+
+            &.first
+              +round-top
+
+          li
+            a:hover
+              :background = !turquoise_dark
+
+            &.first a
+              :-moz-border-radius-topleft 4px
+              :-webkit-border-top-left-radius 4px
+
+    #sidebar
+      +round-bottom
+
+      .block
+        :background = !white
+        +round-top
+        +round-bottom
+
+      h3
+        :background = !turquoise
+        :color = !white
+        :border-bottom  10px solid !black_darker
+        +round-top
+
+      .notice
+        :background-color #FFFFCC
+        :border-color #FFFFFF #DDDDDD #DDDDDD #FFFFFF
+        :border-style solid
+        :border-width 1px
+        :padding 0 10px
+
+      ul
+
+        li a
+          &:link, &:visited
+            :background = !white
+            :border-bottom  1px solid !gray_lightest
+            :text-decoration none
+
+          &:hover, &:active
+            :background = !turquoise_dark
+            :color = !white
+
+        &.navigation
+          +round-bottom
+
+    #box
+      :margin 25px auto 0
+
+      input
+        &.text_field
+          :font-size 2em
+
+      .block
+        :background = !white
+        :margin 80px auto 0
+        +round-top
+        +round-bottom
+
+      h2
+        :background =  !turquoise
+        :color = !white
+        +round-top
+
+  #footer .block
+    :color #dfb946
+    :background #222
+    :position relative
+    :margin-top -100px /* negative value of footer height */
+    :height 100px
+    :clear both
+    :margin-top 5px
+
+    p
+      :padding 10px
+
+    .copyright
+      :text-align center
+      :padding 10px
+      :font-size 1.2em
+
+
+    .footer_left
+      :float left
+      :margin-left 30px
+    .footer_right
+      :float right
+      :text-align left
+      :margin-right 30px
+  #box-flash .block
+    :background = !white
+    :margin 25px auto 0
+    :width 500px
+    +round-top
+    +round-bottom
+
+  .form
+
+    input
+
+      &.text_field
+        :width 90%
+
+      &.button
+        :background = !gray_ultralight
+        :color = !black_darker
+        :padding 2px 5px
+        :cursor pointer
+        +black-border
+        +round-top
+        +round-bottom
+
+    select
+      :font-size 1.3em
+
+    textarea.text_area
+      :width 90%
+      +black-border
+
+    .description
+      :font-style italic
+      :color #8C8C8C
+      :font-size .9em
+
+    fieldset.inputs
+      :border-style none
+
+      ol
+        :list-style-type none
+
+        li
+          :margin-bottom 15px
+
+          label
+            :font
+              :size 1.2em
+              :weight bold
+            :display block
+
+          input
+            :width 460px
+            :border 1px solid #262626
+            :vertical-align middle
+            :font-size 1.5em
+          textarea
+            :width 460px
+            :border 1px solid #262626
+            :height 80px
+          &.error
+
+            label
+              :color #AA0000
+
+            input
+              :background #F2E1E1
+              :border 1px solid #AA0000
+
+            p
+              :margin 0
+              :padding 0
+              :font
+                :size 0.9em
+                :style italic
+
+    fieldset.buttons
+      :border-style none
+
+      ol
+        :list-style-type none
+
+        input
+          :background = !gray_ultralight
+          :color = !black_darker
+          :padding 2px 5px
+          :cursor pointer
+          :float left
+          +black-border
+          +round-top
+          +round-bottom
+
+        a
+          :float right
+          :font-size 0.8em
+          :padding-top 9px
+
+  .table
+
+    th
+      :background = !black_darker
+      :color = !white
+
+      &.first
+        +round-top
+
+      &.last
+        :-moz-border-radius-topright 4px
+        :-webkit-border-top-right-radius 4px
+
+    td
+      :border-bottom  1px solid !gray_lightest
+
+  .pagination
+    :padding 10px
+
+    span.current
+      :background = !black_darker
+      :color = !white
+      :border-color = !black_darker
+
+
+    a
+      :color = !black_darker
+      :border-color = !black_darker
+
+      &:hover
+        :color = !white
+        :background = !black_darker
+
+
+  ul.list li
+    :border-bottom-color = !gray_lightest
+    :border-bottom-width 1px
+    :border-bottom-style solid
+    +round-top
+    +round-bottom
+
+    .item .avatar
+      :border-color = !gray_lightest
+      :border-width 1px
+      :border-style solid
+      :padding 2px
+
+
+  .css1
+    :font-size 1.0em
+  .css2
+    :font-size 1.2em
+  .css3
+    :font-size 1.4em
+  .css4
+    :font-size 1.6em
+
+  .post
+    :margin 15px auto 0
+    :margin-left 65px
+
+  .users
+    :width 98%
+    li
+      list-style: none
+      padding: 10px 0px
+      margin: 0 0 0 10px
+      background-color: #fff
+      border-bottom: 1px solid #d2dada
+
+    li:hover
+      background-color: #f7f7f7
+
+    img
+      :vertical-align middle
+
+#following_list
+  :padding 0 0 0 3px
+  :overflow hidden
+  span
+    :float left
+    :padding 0 3px 2px 1px
+
+    img
+      :height 24px
+      :width 24px
+
+.pagination
+  :margin 10px 10px 0 0
+
+#search_bar
+  :margin 10px 0px
+  :width  225px
+  :border 1px solid #999
+  :height 30px
+  +round-top
+  +round-bottom
+
+  input.text
+    :float left
+    :width  190px
+    :font-size 2em
+    :border 1px
+    :line-height 30px
+    :padding-left 3px
+    :background-color transparent
+
+  #search_submit_button
+    :background url('/images/icon/search.png') 0 0
+    :float right
+    :width 28px
+    :height 28px
+    :margin-right 2px
+    &:hover
+      :background-position 0 30px
+      :cursor pointer
+
+
+
+.follow
+  :font
+    :size 1.4em
+    :weight bold
+  :padding 10px
+  img
+    :vertical-align middle
+
+.screenname
+  :font-family Helvetica
+  :font-size 15px
+  :font-size-adjust none
+  :font-style normal
+  :font-variant normal
+  :font-weight bold
+  :line-height normal
+
+.user_detail
+  a
+    &:link, &:visited, &:hover, &:active
+      :color = !black_font
+
+#time
+  :text-align right
+  :background = !turquoise
+  :padding-right 5px
+  :color = !white
+  :font-weight bold
+  img
+    :vertical-align -2px
+
+h1.page
+  :font-size 2em
+  :color #222
+
+a.button
+  &:link, &:visited, &:hover, &:active
+    color: #222
+    display: block
+    float: left
+    margin: 0 7px 0 0
+    background-color: #eee
+    border: 1px solid #bfbfbf
+    font-size: 1em
+    line-height: 1.3em
+    font-weight: bold
+    cursor: pointer
+    padding: 5px 10px 6px 7px
+    text-decoration: none
+
+
+button.button
+  color: #222
+  display: block
+  float: left
+  margin: 7px 7px 0 0
+  background-color: #eee
+  border: 1px solid #bfbfbf
+  font-size: 1em
+  line-height: 1.3em
+  font-weight: bold
+  cursor: pointer
+  padding: 5px 10px 6px 7px
+  text-decoration: none
+  width: auto
+  overflow: visible
+  padding: 4px 10px 3px 7px
+
+  &[type]
+    padding: 5px 10px 5px 7px
+    line-height: 17px
+
+
+*:first-child+html button.button[type]
+  padding: 4px 10px 3px 7px
+
+
+.button img, a.button img
+  margin: 0 6px -3px 0 !important
+  padding: 0
+  border: none
+  width: 16px
+  height: 16px
+
+
+.button:hover, a.button:hover
+  background-color: #dedede
+
+
+.button:active, a.button:active
+  background-color: #e5e5e5
+
+button.ajax_button
+  :float right
+  +round-top
+  +round-bottom
+
+.flash
+
+  .message
+    :-moz-border-radius 3px
+    :-webkit-border-radius 3px
+    :text-align center
+    :margin 0 auto 15px
+
+    p
+      :margin 8px
+
+  .error
+    :border 1px solid #fbb
+    :background-color #fdd
+
+  .warning
+    :border 1px solid #fffaaa
+    :background-color #ffffcc
+
+  .notice
+    :border 1px solid #1FDF00
+    :background-color #BBFFB6
+
+#info_container
+  :margin 0 0 15px 0
+
+  td
+    :padding-right 30px
+    &.first
+      :font-size 1.5em
+  span.up
+    :display block
+  button.button
+    :float right
+
+/* FLITS FORM */
+#new_flit_form
+  width: 550px
+  margin: 25px 10px
+
+  textarea
+    width: 550px
+    height: 50px
+
+  h3
+    font-weight: normal
+    font-size: 150%
+    margin: 0px 5px
+    paddig: 0px 0px 5px 0px
+
+.tag_form
+  :margin-top 5px
+  :width 75%
+  :float left
+
+  img
+    :margin 8px 5px 0 0
+    :float left
+  input
+    :border 1px solid #222
+    :font-size 1.4em
+
+#submit_button_container
+  float: left
+  text-align: right
+  margin-top: 10px
+  margin-left: 10px
+
+
+#flits_list
+  width: 98%
+
+  li
+    list-style: none
+    padding: 10px 0px
+    margin: 0px
+    background-color: #fff
+    border-bottom: 1px solid #d2dada
+    padding-left: 10px
+
+  span.first
+    font-size: 1.8em
+
+
+  li:hover
+    background-color: #f7f7f7
+
+  li img
+    float: left
+    padding-right: 10px
+
+  .flit_message_container
+    font-size: 1.2em
+
+    a
+      color: #00C2FC
+      text-decoration: none
+      font-weight: bold
+
+      &:hover
+        :text-decoration underline
+
+    .message
+      height: 60px
+
+    .tag_list
+      a
+        :color = !pink
+      font-size: 80%
+      text-align: left
+      :margin 0
+      :padding 0
+      :float left
+    .action
+      :margin 0
+      :padding 0
+      :margin-right 5px
+      font-size: 80%
+      text-align: right
+
+      a
+        &:link, &:visited, &:hover, &:active
+          :color #9c9c9c
+        &:hover
+          :text-decoration underline
+
+      img#icon
+        :float none
+        :padding 0
+        :margin 0
+        :vertical-align -2px
+
+    .time_ago
+      font-size: 80%
+      a
+        &:link, &:visited, &:hover, &:active
+          :color #9c9c9c
+        &:hover
+          :text-decoration underline
+
+    .button_container
+      :float right
+      :text-align right
+      :width 135px
+
+
+    .color_link
+      a
+        &:link, &:visited, &:hover, &:active
+          :color #c2dc15
+
+
+#char_count
+  float: right
+  font-size: 23px
+  font-weight: bold !important
+  color: #aaa
+
+.dark_red
+  color: #5c0002 !important
+
+.red
+  color: #d40d12 !important
+
+canvas#imageView
+  border: 1px solid #000
+
+canvas#imageTemp
+  position: absolute
+  top: 1px
+  left: 1px
+#canv
+  position: relative
+
+input.button
+  width: 115px
+  height: 32px
+  border: 0px
+  background: url('/images/round-btn.gif') top left no-repeat
+  font-size: 120%
+  color: #666
+
+li.first
+  border-top: 1px solid #d2dada
+
+
+
+.adsense_block
+  :float right
+
+
+
+#header
+  :padding 0 20px
+  :position relative
+  :padding-top 1px
+  :margin-top 5px
+
+  h1
+    :padding 0 0 10px 0
+
+    a
+      &:link, &:active, &:hover, &:visited
+        :color = !white
+
+  #main-navigation
+    :width 100%
+    :background = !white
+    +round-top
+    +round-bottom
+
+    ul
+      :margin 0
+      :padding 0
+      :list-style-type none
+
+      li
+        :margin-right 0
+        :font-size 1.2em
+        :float left
+
+        a
+          :display block
+          :padding 8px 8px
+
+          &:link, &:visited, &:active
+            :text-decoration none
+          &:hover
+            :text-decoration underline
+        img
+          :vertical-align -2px
+
+
+
+  #user-navigation
+    :top auto
+    :right 25px
+    :font-size 1.2em
+    :position absolute
+
+    ul
+      :margin 0
+      :padding 0
+      :list-style-type none
+
+      li
+
+        :float left
+        :padding 8px 8px 0 0
+
+        a
+          :padding 8px 4px
+
+          &:link, &:visited, &:active
+            :text-decoration none
+          &:hover
+            :text-decoration underline
+        img
+          :vertical-align -2px
+
+
+

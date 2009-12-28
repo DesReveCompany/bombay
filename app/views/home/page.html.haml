@@ -1,0 +1,22 @@
+%h1
+  = image_tag @flit.user.avatar.url(:medium), :title => @flit.user.username
+  = @flit.user.username
+
+.flit_message_container
+  %h1.page= h(@flit.message)
+  .time_ago
+    - if @flit.created_at >= Time.now.yesterday
+      = link_to "#{distance_of_time_in_words_to_now(@flit.created_at)} ago", :action => "page",:id => @flit.id
+    - else
+      = link_to "#{show_date(@flit.created_at)} ", page_path(@flit.id)
+
+    - if current_user
+      - if @flit.user.username == current_user.username
+        |
+        = link_to "#{ image_tag "icon/delete.png", :size => '14x14', :id => "icon"} Delete", @flit, :confirm => 'Are you sure?', :method => :delete
+      - else
+        |
+        = link_to "#{ image_tag "icon/reply.png", :size => '14x14', :id => "icon" } Reply", @flit, :action => "show", :id => @flit.user.username
+        |
+        = link_to "#{ image_tag "icon/star_white.png", :size => '14x14', :id => "icon"} Bookmark"
+

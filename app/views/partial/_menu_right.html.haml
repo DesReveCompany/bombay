@@ -1,0 +1,8 @@
+- if logged_in?
+  %li
+    = link_to "#{image_tag "icon/profile.png", :size => '16x16'} #{current_user.username}", edit_user_path(current_user.id)
+  %li
+    = link_to "#{image_tag "icon/arrow_blue.png", :size => '16x16'} #{ t(:logout)}", logout_path
+- else
+  %li= link_to "#{image_tag "icon/arrow_orange.png", :size => '16x16'} #{t(:login)}", login_path
+  %li= link_to "#{image_tag "icon/arrow_green.png", :size => '16x16'} #{t(:signup)}", signup_path
